@@ -8,6 +8,7 @@ import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
 import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback {
@@ -28,9 +29,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
-        LatLng smkn13 = new LatLng(-6.938195, 107.656938);
-        mMap.addMarker(new MarkerOptions().position(smkn13).title("SMKN 13 Bandung"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(smkn13) 15);
+        LatLngBounds bandung = new LatLngBounds(
+                new LatLng(-6.885380, 107.633198), new LatLng(-6.954069, 107.556680));
+
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 10));
     }
 }
