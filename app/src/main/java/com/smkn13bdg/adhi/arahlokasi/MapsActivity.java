@@ -2,6 +2,7 @@ package com.smkn13bdg.adhi.arahlokasi;
 
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
 import com.directions.route.AbstractRouting;
@@ -23,7 +24,7 @@ import com.google.android.gms.maps.model.PolylineOptions;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MapsActivity extends FragmentActivity implements RoutingListener, OnMapReadyCallback {
+public class MapsActivity extends AppCompatActivity implements RoutingListener, OnMapReadyCallback {
 
     private GoogleMap mMap;
     protected LatLng start;
@@ -63,7 +64,7 @@ public class MapsActivity extends FragmentActivity implements RoutingListener, O
             Routing routing = new Routing.Builder()
                     .travelMode(AbstractRouting.TravelMode.DRIVING)
                     .withListener(this)
-                    .alternativeRoutes(true)
+                    .alternativeRoutes(false)
                     .waypoints(start, end)
                     .build();
             routing.execute();
