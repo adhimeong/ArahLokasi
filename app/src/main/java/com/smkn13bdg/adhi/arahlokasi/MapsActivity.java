@@ -28,10 +28,11 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        mMap.setMinZoomPreference(16.0f);
+        mMap.setMaxZoomPreference(34.0f);
 
-        LatLngBounds bandung = new LatLngBounds(
-                new LatLng(-6.203383, 108.527554), new LatLng(-7.463939, 106.587094));
+        LatLng smkn13 = new LatLng(-6.902516, 107.618771);
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(smkn13));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 1));
     }
 }
