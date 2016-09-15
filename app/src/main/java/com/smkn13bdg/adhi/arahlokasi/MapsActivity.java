@@ -32,6 +32,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         LatLngBounds bandung = new LatLngBounds(
                 new LatLng(-12.426899, 97.617989), new LatLng(16.929675, 135.147287));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 20));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 15));
     }
 }
