@@ -30,6 +30,8 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
     protected LatLng start;
     protected LatLng end;
     protected LatLng waypoint;
+    protected LatLng waypoint2;
+    protected LatLng waypoint3;
     private List<Polyline> polylines;
     private static final int[] COLORS = new int[]{R.color.primary_dark,R.color.primary,R.color.primary_light,R.color.accent,R.color.primary_dark_material_light};
 
@@ -53,19 +55,21 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
         mMap.setMinZoomPreference(16.0f);
         mMap.setMaxZoomPreference(34.0f);
 
-        start = new LatLng(-6.902516, 107.618771);
-        waypoint= new LatLng(-6.929381, 107.644072);
-        end = new LatLng(-6.938195, 107.656938);
+        start = new LatLng(-6.938195, 107.656938);
+        end = new LatLng(-6.947813, 107.641430);
+        waypoint= new LatLng(-6.938986, 107.663853);
+        waypoint2= new LatLng(-6.930263, 107.651118);
+        waypoint3 = new LatLng(-6.927121, 107.644563);
 
         if(start==null || end==null){
-            Toast.makeText(this,"data tidak masuk",Toast.LENGTH_SHORT).show();
+            Toast.makeText(this,"Data inputan tidak masuk",Toast.LENGTH_SHORT).show();
         }else{
 
             Routing routing = new Routing.Builder()
                     .travelMode(AbstractRouting.TravelMode.DRIVING)
                     .withListener(this)
                     .alternativeRoutes(false)
-                    .waypoints(start, end)
+                    .waypoints(start, waypoint, waypoint2, waypoint3, end)
                     .build();
             routing.execute();
         }
@@ -73,7 +77,7 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
 
     @Override
     public void onRoutingFailure(RouteException e) {
-
+        Toast.makeText(this,"Terjadi kesalahan saat menampilkan peta",Toast.LENGTH_SHORT).show();
     }
 
     @Override
@@ -85,7 +89,6 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
     public void onRoutingSuccess(ArrayList<Route> route, int shortestRouteIndex) {
 
         CameraUpdate center = CameraUpdateFactory.newLatLng(start);
-        CameraUpdate zoom = CameraUpdateFactory.zoomTo(16);
 
         mMap.moveCamera(center);
 
