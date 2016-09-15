@@ -12,9 +12,6 @@ import android.widget.EditText;
  */
 public class InputanTujuan extends AppCompatActivity{
 
-    public final static String EXTRA_MESSAGE = "com.example.myfirstapp.MESSAGE";
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +25,8 @@ public class InputanTujuan extends AppCompatActivity{
 
         String asal = asaltxt.getText().toString();
         String tujuan = tujuantxt.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, asal, tujuan);
+        intent.putExtra("asal", asal);
+        intent.putExtra("tujuan", tujuan);
         startActivity(intent);
     }
 
