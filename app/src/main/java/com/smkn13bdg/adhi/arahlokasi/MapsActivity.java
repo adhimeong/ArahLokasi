@@ -30,8 +30,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap = googleMap;
 
         LatLngBounds bandung = new LatLngBounds(
-                new LatLng(-44, 113), new LatLng(-10, 154));
+                new LatLng(-12.426899, 97.617989), new LatLng(16.929675, 135.147287));
 
-        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 10));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bandung.getCenter(), 20));
     }
 }
