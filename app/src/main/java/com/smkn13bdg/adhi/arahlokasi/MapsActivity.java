@@ -32,10 +32,6 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
     private List<Polyline> polylines;
     private static final int[] COLORS = new int[]{R.color.primary_dark,R.color.primary,R.color.primary_light,R.color.accent,R.color.primary_dark_material_light};
 
-    protected UbahBuatMap(){
-
-        return;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
