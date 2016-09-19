@@ -29,10 +29,13 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
     protected LatLng start;
     protected LatLng end;
     protected LatLng waypoint;
-    protected LatLng waypoint2;
-    protected LatLng waypoint3;
     private List<Polyline> polylines;
     private static final int[] COLORS = new int[]{R.color.primary_dark,R.color.primary,R.color.primary_light,R.color.accent,R.color.primary_dark_material_light};
+
+    protected UbahBuatMap(){
+
+        return;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +50,7 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
         mapFragment.getMapAsync(this);
     }
 
+
     @Override
     public void onMapReady(GoogleMap googleMap) {
 
@@ -57,8 +61,6 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
         start = new LatLng(-6.938195, 107.656938);
         end = new LatLng(-6.947813, 107.641430);
         waypoint= new LatLng(-6.938986, 107.663853);
-        waypoint2= new LatLng(-6.930263, 107.651118);
-        waypoint3 = new LatLng(-6.927121, 107.644563);
 
         if(start==null || end==null){
             Toast.makeText(this,"Data inputan tidak masuk",Toast.LENGTH_SHORT).show();
@@ -68,7 +70,7 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
                     .travelMode(AbstractRouting.TravelMode.DRIVING)
                     .withListener(this)
                     .alternativeRoutes(false)
-                    .waypoints(start, waypoint, waypoint2, waypoint3, end)
+                    .waypoints(start, waypoint, end)
                     .build();
             routing.execute();
         }
