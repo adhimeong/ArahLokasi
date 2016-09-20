@@ -51,6 +51,7 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
     public void onMapReady(GoogleMap googleMap) {
 
         mMap = googleMap;
+        //zoom
         mMap.setMinZoomPreference(16.0f);
         mMap.setMaxZoomPreference(34.0f);
 
