@@ -37,5 +37,4 @@ public class DataAngkot extends AppCompatActivity {
     private void JalurAngkot(String awal, String akhir){
 
     }
-
 }
