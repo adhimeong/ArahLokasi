@@ -22,7 +22,7 @@ public class InputanTujuan extends AppCompatActivity{
 
 
         //autocomplete
-        //array temapt asal
+        //array tempat asal
         ArrayAdapter<String> asaladapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_dropdown_item_1line, ASAL);
         //array tempat tujuan
@@ -34,8 +34,8 @@ public class InputanTujuan extends AppCompatActivity{
         tujuantext = (AutoCompleteTextView)
                 findViewById(R.id.autoCompleteTujuan);
         //masukan data array
-        asaltext.setThreshold(1);//mulai kerja pada inputan ke 1
-        tujuantext.setThreshold(1); //mulai kerja pada inputan ke 1
+        asaltext.setThreshold(2);//mulai kerja pada inputan ke 1
+        tujuantext.setThreshold(2); //mulai kerja pada inputan ke 1
         asaltext.setAdapter(asaladapter);
         tujuantext.setAdapter(tujuanadapter);
 
@@ -57,11 +57,11 @@ public class InputanTujuan extends AppCompatActivity{
     }
 
     private static final String[] ASAL = new String[] {
-            "Buah Batu", "Kiaracondong", "Antapani", "Cicadas", "Cicaheum"
+            "Buah Batu", "Kiaracondong", "Antapani", "Cicadas", "Cicaheum", "Ledeng"
     };
 
     private static final String[] TUJUAN = new String[] {
-            "Buah Batu", "Kiaracondong", "Antapani", "Cicadas", "Cicaheum"
+            "Buah Batu", "Kiaracondong", "Antapani", "Cicadas", "Cicaheum", "Ledeng"
     };
 
 }
