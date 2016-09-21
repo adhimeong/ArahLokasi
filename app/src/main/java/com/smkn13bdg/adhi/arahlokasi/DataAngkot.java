@@ -1,6 +1,5 @@
 package com.smkn13bdg.adhi.arahlokasi;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
@@ -10,6 +9,7 @@ import android.widget.TextView;
  */
 public class DataAngkot extends AppCompatActivity {
 
+    public String asaltxt, tujuantxt;
     public TextView asalview, tujuanview;
 
     @Override
@@ -26,9 +26,16 @@ public class DataAngkot extends AppCompatActivity {
 
     private void ambilData(){
         Bundle data = getIntent().getExtras();
+        asaltxt = data.getCharSequence("asalintent").toString();
+        tujuantxt = data.getCharSequence("tujuanintent").toString();
 
-        asalview.setText(data.getCharSequence("asalintent"));
-        tujuanview.setText(data.getCharSequence("tujuanintent"));
+        asalview.setText(asaltxt);
+        tujuanview.setText(tujuantxt);
+        JalurAngkot(asaltxt, tujuantxt);
+    }
+
+    private void JalurAngkot(String awal, String akhir){
+
     }
 
 }
