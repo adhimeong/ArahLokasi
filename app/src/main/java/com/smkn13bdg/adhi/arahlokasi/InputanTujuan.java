@@ -48,7 +48,7 @@ public class InputanTujuan extends AppCompatActivity{
         Bundle data = new Bundle();
 
         //menyisipkan string
-        data.putString("asalintent", tujuantext.getText().toString());
+        data.putString("asalintent", asaltext.getText().toString());
         data.putString("tujuanintent", tujuantext.getText().toString());
 
         //menambah bundle intent
