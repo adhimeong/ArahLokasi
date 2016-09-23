@@ -9,5 +9,6 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class JalurHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME ="angkotbdg";
+    private static  final int DATABASE_VERSION = 1;
 
 }
