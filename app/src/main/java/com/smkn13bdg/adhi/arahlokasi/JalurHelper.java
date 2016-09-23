@@ -14,6 +14,7 @@ public class JalurHelper extends SQLiteOpenHelper {
     private static  final int DATABASE_VERSION = 1;
 
     public JalurHelper(Context context)  {
+
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
