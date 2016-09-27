@@ -26,6 +26,12 @@ public class JalurHelper extends SQLiteOpenHelper {
         db.execSQL(sql1);
         db.execSQL(sql2);
         db.execSQL(sql3);
+        String inputangkot = "INSERT INTO angkot(id_angkot, nama_angkot) VALUES()";
+        String inputtrayek = "INSERT INTO trayek(id_angkot, nama_angkot) VALUES()";
+        String inputlokasi = "INSERT INTO lokasi(id_angkot, nama_angkot) VALUES()";
+        db.execSQL(inputangkot);
+        db.execSQL(inputtrayek);
+        db.execSQL(inputlokasi);
     }
 
     @Override
