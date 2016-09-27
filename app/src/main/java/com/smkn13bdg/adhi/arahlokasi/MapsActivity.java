@@ -1,5 +1,7 @@
 package com.smkn13bdg.adhi.arahlokasi;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
@@ -26,6 +28,8 @@ import java.util.List;
 public class MapsActivity extends AppCompatActivity implements RoutingListener, OnMapReadyCallback {
 
     private GoogleMap mMap;
+    protected Cursor cursor;
+    JalurHelper dbHelper;
     protected LatLng start;
     protected LatLng end;
     protected LatLng waypoint;
@@ -39,11 +43,22 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
         setContentView(R.layout.activity_maps);
 
         polylines = new ArrayList<>();
+        //database angkot
+        dbHelper = new JalurHelper(this);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        cursor =db.rawQuery("SELECT * FROM ", null);
+        cursor.moveToFirst();
+
+        if (cursor.getCount()>0){
+            cursor.moveToPosition(0);
+        }
+
     }
 
 
