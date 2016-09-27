@@ -52,7 +52,7 @@ public class MapsActivity extends AppCompatActivity implements RoutingListener, 
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
 
-        cursor =db.rawQuery("SELECT * FROM ", null);
+        cursor =db.rawQuery("SELECT * FROM lokasi", null);
         cursor.moveToFirst();
 
         if (cursor.getCount()>0){
